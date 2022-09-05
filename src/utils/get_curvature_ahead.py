@@ -39,10 +39,11 @@ def _get_angle(_a, _b, _c):
     _b = math.sqrt(b_2)
     _c = math.sqrt(c_2)
 
-    # From Cosine law
-    alpha = math.acos((b_2 + c_2 - a_2) /
-                      (2 * _b * _c))
+    term_1 = (b_2 + c_2 - a_2)
+    term_2 = (2 * _b * _c)
 
+    # From Cosine law
+    alpha = math.acos(term_1 / term_2)
     # Converting to degree
     alpha = alpha * 180 / math.pi
 

@@ -11,7 +11,7 @@ def curve_is_ahead(ahead_waypoints: list, distance_check: int, turn_degree_activ
     - ahead_waypoints : list,
         An array of waypoints that are ahead of the agent 
     - distance_check : int,
-        The distance(Amount of waypoints) to start checking the track for a turn
+        The distance(waypoints zero index) to start checking the track for a turn
     - turn_degree_activation:int
         The angle degree at which a turn is recognized
 
