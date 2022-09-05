@@ -9,7 +9,7 @@ def get_curvature_ahead(agent_pos: Tuple[int, int], ahead_waypoints: list):
     amount_of_waypoints = len(ahead_waypoints)
     if amount_of_waypoints < 2:
         raise Exception(
-            f'''There must be at least 2 waypoints given to calculate curvature. 
+            f'''There must be at least 2 waypoints given to calculate curvature.
             Only {amount_of_waypoints} were given''')
     # The waypoint that helps give the direction of the agent
     # The waypoint that gives the direction of the road
