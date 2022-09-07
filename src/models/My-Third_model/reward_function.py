@@ -1,5 +1,4 @@
 import math
-from functools import reduce
 
 
 class PREVIOUS_PARAMS:
@@ -91,20 +90,22 @@ def reward_function(params: dict):
     Returns:
         float: A reward value
     """
-
-    # params = compose_params(params, PREVIOUS_PARAMS.__dict__)
+    # Start with reward at minimum value
+    reward = 1e-3
 
     # Penalize if the car goes off track
     if not params['all_wheels_on_track']:
-        return 1e-3
+        return reward
 
-    # Start with reward at minimum value and then accumulate the different rewards together for the final reward
-    reward = reduce(lambda a, b: a + b, [
-        1e-3,  # Minimum reward
+    reward_results = [
         direction_reward(params, 1),
         speed_reward(params, 2),
         progress_reward(params, 10)
-    ])
+    ]
+
+    # Accumulate the different rewards together for the final reward
+    for operator in reward_results:
+        reward += operator
 
     # Always return a float value
     return float(reward)
